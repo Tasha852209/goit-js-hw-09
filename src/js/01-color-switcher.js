@@ -7,6 +7,7 @@ startBtn.addEventListener('click', onStartClick);
 
 function onStartClick() {
   startBtn.disabled = true;
+  stopBtn.disabled = false;
   timerId = setInterval(
     () => (body.style.backgroundColor = getRandomHexColor()),
     1000
