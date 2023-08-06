@@ -72,11 +72,8 @@ function currentDifferences(selectedDates) {
     Notify.failure('Please choose a date in the future');
   } else {
     startBtn.disabled = false;
-
     differences = selectedDates.getTime() - currentDay;
-
     formatDate = convertMs(differences);
-    console.log(formatDate);
     render(formatDate);
   }
 }
