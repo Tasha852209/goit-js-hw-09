@@ -43,12 +43,12 @@ startBtn.disabled = true;
 startBtn.addEventListener('click', onStartBtn);
 
 function onStartBtn() {
+  startBtn.disabled = true;
+  dateInput.disabled = true;
   timerId = setInterval(startTimer, 1000);
 }
 
 function startTimer() {
-  startBtn.disabled = true;
-  dateInput.disabled = true;
   differences -= 1000;
   if (
     days.textContent <= 0 &&
@@ -57,7 +57,7 @@ function startTimer() {
     seconds.textContent <= 0
   ) {
     Notify.success('Time end!');
-    clearInterval(timer);
+    clearInterval(timerId);
   } else {
     formatDate = convertMs(differences);
     render(formatDate);
@@ -82,7 +82,7 @@ function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
-function render() {
+function render(formatDate) {
   days.textContent = addLeadingZero(formatDate.days);
   hours.textContent = addLeadingZero(formatDate.hours);
   minutes.textContent = addLeadingZero(formatDate.minutes);
