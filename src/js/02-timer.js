@@ -51,14 +51,16 @@ function onStartBtn() {
 function startTimer() {
   differences -= 1000;
   if (
-    days.textContent <= 0 &&
-    hours.textContent <= 0 &&
-    minutes.textContent <= 0 &&
-    seconds.textContent <= 0
+    formatDate.days <= 0 &&
+    formatDate.hours <= 0 &&
+    formatDate.minutes <= 0 &&
+    formatDate.seconds <= 0
   ) {
     Notify.success('Time end!');
     clearInterval(timerId);
   } else {
+    // startBtn.disabled = false;
+    // differences = selectedDates.getTime() - currentDay;
     formatDate = convertMs(differences);
     render(formatDate);
   }
@@ -74,7 +76,7 @@ function currentDifferences(selectedDates) {
     startBtn.disabled = false;
     differences = selectedDates.getTime() - currentDay;
     formatDate = convertMs(differences);
-    render(formatDate);
+    // render(formatDate);
   }
 }
 
