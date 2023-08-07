@@ -59,8 +59,6 @@ function startTimer() {
     Notify.success('Time end!');
     clearInterval(timerId);
   } else {
-    // startBtn.disabled = false;
-    // differences = selectedDates.getTime() - currentDay;
     formatDate = convertMs(differences);
     render(formatDate);
   }
@@ -76,7 +74,6 @@ function currentDifferences(selectedDates) {
     startBtn.disabled = false;
     differences = selectedDates.getTime() - currentDay;
     formatDate = convertMs(differences);
-    // render(formatDate);
   }
 }
 
